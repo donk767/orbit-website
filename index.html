@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070a12" />
+    <meta
+      name="description"
+      content="ORBIT — інтерактивна подорож Сонячною системою. Обери планету, підлети до неї та відкрий її історію."
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>ORBIT — твоя Сонячна система</title>
+    <script type="module" crossorigin src="./assets/index-DGgQDimd.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-ChtrMBE0.css">
+  </head>
+  <body data-view="landing" data-travel="false">
+    <div id="universe" class="universe" aria-busy="false">
+      <canvas id="universe-canvas" aria-hidden="true"></canvas>
+      <div class="space-vignette" aria-hidden="true"></div>
+      <div id="planet-labels" class="planet-labels" hidden></div>
+    </div>
+    <a class="skip-link" href="#start-button">До керування</a>
+    <header class="site-header">
+      <button
+        class="brand"
+        id="home-button"
+        type="button"
+        aria-label="ORBIT — на початок"
+      >
+        <svg viewBox="0 0 42 42" aria-hidden="true">
+          <circle cx="21" cy="21" r="11" />
+          <ellipse
+            cx="21"
+            cy="21"
+            rx="22"
+            ry="7"
+            transform="rotate(-35 21 21)"
+          />
+        </svg>
+        <span>ORBIT<span class="brand-mark">®</span></span>
+      </button>
+      <span class="header-divider" aria-hidden="true"></span>
+      <span class="header-caption">ТВІЙ КОСМІЧНИЙ АТЛАС</span>
+      <div class="header-right">
+        <span class="live-status"><i></i> ВІДКРИВАЙ НЕВІДОМЕ</span>
+        <button
+          type="button"
+          class="icon-button"
+          id="about-button"
+          aria-label="Про атлас"
+          title="Про атлас"
+        >
+          <span class="info-icon" aria-hidden="true">i</span>
+        </button>
+        <button
+          type="button"
+          class="icon-button"
+          id="fullscreen-button"
+          aria-label="На весь екран"
+          title="На весь екран"
+          hidden
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="landing" id="landing" aria-labelledby="landing-title">
+        <div class="landing-copy">
+          <p class="eyebrow">
+            <span class="small-star" aria-hidden="true"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5" /></svg
+            ></span>
+            ЗЕМЛЯ — ЛИШЕ ПОЧАТОК
+          </p>
+          <h1 id="landing-title">
+            Космос<br />ближче, ніж<br /><span>здається.</span>
+          </h1>
+          <p class="landing-description">
+            Вісім планет. Нескінченна цікавість.<br />Твоя власна подорож
+            Сонячною системою.
+          </p>
+          <button type="button" class="start-button" id="start-button">
+            <span>Почати подорож</span
+            ><span class="button-arrow" aria-hidden="true"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 18 18 6M6 6h12v12" /></svg
+            ></span>
+          </button>
+          <span class="start-note"
+            ><span aria-hidden="true"
+              ><svg viewBox="0 0 20 20"><path d="M4 3v9h12m-4-4 4 4-4 4" /></svg
+            ></span>
+            Обери планету. Зміни перспективу.</span
+          >
+        </div>
+        <div class="landing-coordinate" aria-hidden="true">
+          <span class="coordinate-cross">+</span
+          ><span
+            >06 / СОНЯЧНА СИСТЕМА<strong>Сатурн</strong
+            ><small>Там, де світло стає кільцями.</small></span
+          ><i></i>
+        </div>
+        <div class="landing-bottom">
+          <div class="landing-facts">
+            <div><strong>08</strong><span>ПЛАНЕТ ДЛЯ ВІДКРИТТЯ</span></div>
+            <div>
+              <strong>4,6<span>млрд</span></strong
+              ><span>РОКІВ КОСМІЧНОЇ ІСТОРІЇ</span>
+            </div>
+            <div class="infinite-fact">
+              <strong>∞</strong><span>ПРИВОДІВ ДИВУВАТИСЬ</span>
+            </div>
+          </div>
+          <span class="landing-footnote"
+            >СТВОРЕНО НА ЗЕМЛІ.<br />ДЛЯ ТИХ, ХТО ДИВИТЬСЯ ВГОРУ.</span
+          >
+        </div>
+      </section>
+
+      <section
+        class="overview-heading"
+        id="overview-heading"
+        aria-labelledby="overview-title"
+        hidden
+      >
+        <p class="eyebrow">
+          <span class="small-star" aria-hidden="true"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5" /></svg
+          ></span>
+          ТВОЄ КОСМІЧНЕ СУСІДСТВО
+        </p>
+        <h1 id="overview-title" tabindex="-1">Сонячна система<span>.</span></h1>
+        <p>Торкнись планети — і вирушай до неї.</p>
+      </section>
+      <button type="button" class="back-button" id="back-to-system" hidden>
+        <span aria-hidden="true"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m10 5-7 7 7 7M3 12h18" /></svg
+        ></span>
+        Сонячна система
+      </button>
+
+      <section
+        id="planet-panel"
+        class="planet-panel"
+        aria-labelledby="planet-name"
+        hidden
+      >
+        <div class="planet-panel-inner">
+          <div class="planet-eyebrow">
+            <span id="planet-number">03 / 08</span
+            ><span class="eyebrow-line"></span
+            ><span id="planet-type">Кам’яниста планета</span>
+          </div>
+          <div class="planet-title-row">
+            <h1 id="planet-name" tabindex="-1">Земля</h1>
+            <span id="planet-latin">EARTH</span>
+          </div>
+          <p class="planet-tagline" id="planet-tagline"></p>
+          <p class="planet-description" id="planet-description"></p>
+          <dl class="planet-stats">
+            <div>
+              <dt>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M8 12V4a2 2 0 0 1 4 0v8a4 4 0 1 1-4 0Z" />
+                  <path d="M10 8v7" /></svg
+                >ТЕМПЕРАТУРА
+              </dt>
+              <dd>
+                <span id="planet-temp"></span
+                ><span id="planet-temp-note" class="stat-note"></span>
+              </dd>
+            </div>
+            <div>
+              <dt>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <circle cx="10" cy="10" r="7" />
+                  <path d="m4 16 12-12M4 12v4h4m4-12h4v4" /></svg
+                >ДІАМЕТР
+              </dt>
+              <dd>
+                <span id="planet-diameter"></span
+                ><span class="stat-note">середній діаметр</span>
+              </dd>
+            </div>
+            <div>
+              <dt>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <circle cx="10" cy="10" r="3" />
+                  <path
+                    d="M10 1v3m0 12v3M1 10h3m12 0h3M4 4l2 2m8 8 2 2M4 16l2-2m8-8 2-2"
+                  /></svg
+                >ВІД СОНЦЯ
+              </dt>
+              <dd>
+                <span id="planet-distance"></span
+                ><span class="stat-note">середня орбітальна відстань</span>
+              </dd>
+            </div>
+            <div>
+              <dt>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <circle cx="10" cy="10" r="7" />
+                  <path d="M10 5v5l3 2" /></svg
+                >ТРИВАЛІСТЬ РОКУ
+              </dt>
+              <dd>
+                <span id="planet-year"></span
+                ><span class="stat-note">один оберт навколо Сонця</span>
+              </dd>
+            </div>
+          </dl>
+          <div class="did-you-know">
+            <span class="eyebrow"
+              ><span aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5" /></svg
+              ></span>
+              А ТИ ЗНАЄШ?</span
+            >
+            <ul id="planet-facts"></ul>
+          </div>
+          <div class="planet-pagination">
+            <button id="previous-planet" class="text-button" type="button">
+              <span aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m10 5-7 7 7 7M3 12h18" /></svg></span
+              ><span id="previous-planet-name"></span></button
+            ><span id="visited-label">ВІДКРИТО 1 / 8</span
+            ><button id="next-planet" class="text-button" type="button">
+              <span id="next-planet-name"></span
+              ><span aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m14 5 7 7-7 7M21 12H3" /></svg
+              ></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div
+        id="panel-scroll-cue"
+        class="panel-scroll-cue"
+        hidden
+        aria-hidden="true"
+      >
+        ГОРТАЙ ІНФОРМАЦІЮ
+        <svg viewBox="0 0 20 20"><path d="M10 3v14m-5-5 5 5 5-5" /></svg>
+      </div>
+      <div class="travel-banner" id="travel-banner" hidden aria-hidden="true">
+        <span class="eyebrow" id="travel-label">ПРОКЛАДАЄМО МАРШРУТ</span
+        ><strong id="travel-destination">Сонячна система</strong>
+        <div class="travel-progress"><i></i></div>
+      </div>
+      <div class="scene-footer" id="scene-footer" hidden>
+        <span class="scale-note"><i></i> Масштаби та швидкості умовні</span>
+        <div class="scene-controls">
+          <button
+            type="button"
+            id="pause-button"
+            class="control-button"
+            aria-label="Призупинити рух планет"
+            aria-pressed="false"
+          >
+            <span id="pause-symbol" aria-hidden="true">Ⅱ</span
+            ><span id="pause-label">Пауза</span></button
+          ><span class="control-divider"></span
+          ><button
+            type="button"
+            id="speed-button"
+            class="control-button"
+            aria-label="Швидкість руху: 1×"
+          >
+            <span class="speed-symbol" aria-hidden="true"
+              ><svg viewBox="0 0 20 20">
+                <circle cx="10" cy="10" r="7" />
+                <path d="M10 5v5h5" /></svg></span
+            ><span id="speed-label">Час ×1</span>
+          </button>
+        </div>
+      </div>
+      <nav
+        class="planet-dock"
+        id="planet-dock"
+        aria-label="Обрати планету"
+        hidden
+      >
+        <div class="dock-intro">
+          <span class="dock-sun" aria-hidden="true"
+            ><svg viewBox="0 0 32 32">
+              <circle cx="16" cy="16" r="11" />
+              <circle cx="16" cy="16" r="3" /></svg></span
+          ><span>ОБЕРИ<br />СВІЙ СВІТ</span>
+        </div>
+        <div id="planet-list" class="planet-list"></div>
+        <span class="dock-end" aria-hidden="true"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 18 18 6M6 6h12v12" /></svg
+        ></span>
+      </nav>
+    </main>
+
+    <div
+      id="announcer"
+      class="sr-only"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <dialog
+      id="about-dialog"
+      class="about-dialog"
+      aria-labelledby="about-title"
+    >
+      <button
+        type="button"
+        id="close-about"
+        class="icon-button dialog-close"
+        aria-label="Закрити інформацію"
+      >
+        ×</button
+      ><span class="eyebrow">ORBIT / ПРО АТЛАС</span>
+      <h2 id="about-title">Залишайся<br /><span>допитливим.</span></h2>
+      <p>
+        Це твій інтерактивний путівник усіма вісьмома планетами Сонячної
+        системи.
+      </p>
+      <ul>
+        <li>Натисни на планету або її назву внизу, щоб підлетіти ближче.</li>
+        <li>
+          Кнопка «Сонячна система» або клавіша <kbd>Esc</kbd> повертає до карти.
+        </li>
+        <li>Призупиняй рух і змінюй швидкість кнопками внизу.</li>
+      </ul>
+      <div class="about-note">
+        Розміри, відстані й швидкості у візуалізації умовні. Числа в картках
+        округлені. Температура залежить від місця й умов; для гігантів показано
+        температуру атмосфери на рівні тиску 1 бар.
+      </div>
+      <a
+        href="https://science.nasa.gov/solar-system/planets/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="source-link"
+        >Більше про планети — NASA
+        <span aria-hidden="true"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 18 18 6M6 6h12v12" /></svg></span></a
+      ><span class="about-credit">ЗРОБЛЕНО НА ПЛАНЕТІ ЗЕМЛЯ · 2026</span>
+    </dialog>
+    <noscript
+      ><div class="noscript-note">
+        Щоб досліджувати планети, увімкни JavaScript у браузері.
+      </div></noscript
+    >
+  </body>
+</html>
