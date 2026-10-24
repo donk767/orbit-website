@@ -6,12 +6,12 @@
     <meta name="theme-color" content="#070a12" />
     <meta
       name="description"
-      content="ORBIT — інтерактивна подорож Сонячною системою. Обери планету, підлети до неї та відкрий її історію."
+      content="ORBIT — інтерактивна подорож Сонячною системою. Досліджуй Сонце й вісім планет, підлітай ближче та відкривай їхні історії."
     />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>ORBIT — твоя Сонячна система</title>
-    <script type="module" crossorigin src="./assets/index-DGgQDimd.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-ChtrMBE0.css">
+    <script type="module" crossorigin src="./assets/index-gXfboGvF.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C7TmYSGM.css">
   </head>
   <body data-view="landing" data-travel="false">
     <div id="universe" class="universe" aria-busy="false">
@@ -81,8 +81,7 @@
             Космос<br />ближче, ніж<br /><span>здається.</span>
           </h1>
           <p class="landing-description">
-            Вісім планет. Нескінченна цікавість.<br />Твоя власна подорож
-            Сонячною системою.
+            Одна зоря. Вісім планет.<br />Твоя власна подорож Сонячною системою.
           </p>
           <button type="button" class="start-button" id="start-button">
             <span>Почати подорож</span
@@ -95,7 +94,7 @@
             ><span aria-hidden="true"
               ><svg viewBox="0 0 20 20"><path d="M4 3v9h12m-4-4 4 4-4 4" /></svg
             ></span>
-            Обери планету. Зміни перспективу.</span
+            Обери свій світ. Зміни перспективу.</span
           >
         </div>
         <div class="landing-coordinate" aria-hidden="true">
@@ -136,7 +135,7 @@
           ТВОЄ КОСМІЧНЕ СУСІДСТВО
         </p>
         <h1 id="overview-title" tabindex="-1">Сонячна система<span>.</span></h1>
-        <p>Торкнись планети — і вирушай до неї.</p>
+        <p>Обери Сонце чи планету — і вирушай ближче.</p>
       </section>
       <button type="button" class="back-button" id="back-to-system" hidden>
         <span aria-hidden="true"
@@ -196,11 +195,13 @@
                   <path
                     d="M10 1v3m0 12v3M1 10h3m12 0h3M4 4l2 2m8 8 2 2M4 16l2-2m8-8 2-2"
                   /></svg
-                >ВІД СОНЦЯ
+                ><span id="planet-distance-label">ВІД СОНЦЯ</span>
               </dt>
               <dd>
                 <span id="planet-distance"></span
-                ><span class="stat-note">середня орбітальна відстань</span>
+                ><span class="stat-note" id="planet-distance-note"
+                  >середня орбітальна відстань</span
+                >
               </dd>
             </div>
             <div>
@@ -208,11 +209,13 @@
                 <svg viewBox="0 0 20 20" aria-hidden="true">
                   <circle cx="10" cy="10" r="7" />
                   <path d="M10 5v5l3 2" /></svg
-                >ТРИВАЛІСТЬ РОКУ
+                ><span id="planet-year-label">ТРИВАЛІСТЬ РОКУ</span>
               </dt>
               <dd>
                 <span id="planet-year"></span
-                ><span class="stat-note">один оберт навколо Сонця</span>
+                ><span class="stat-note" id="planet-year-note"
+                  >один оберт навколо Сонця</span
+                >
               </dd>
             </div>
           </dl>
@@ -232,7 +235,7 @@
                 ><svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="m10 5-7 7 7 7M3 12h18" /></svg></span
               ><span id="previous-planet-name"></span></button
-            ><span id="visited-label">ВІДКРИТО 1 / 8</span
+            ><span id="visited-label">ВІДКРИТО 0 / 9</span
             ><button id="next-planet" class="text-button" type="button">
               <span id="next-planet-name"></span
               ><span aria-hidden="true"
@@ -288,7 +291,7 @@
       <nav
         class="planet-dock"
         id="planet-dock"
-        aria-label="Обрати планету"
+        aria-label="Обрати Сонце або планету"
         hidden
       >
         <div class="dock-intro">
@@ -328,11 +331,13 @@
       ><span class="eyebrow">ORBIT / ПРО АТЛАС</span>
       <h2 id="about-title">Залишайся<br /><span>допитливим.</span></h2>
       <p>
-        Це твій інтерактивний путівник усіма вісьмома планетами Сонячної
-        системи.
+        Це твій інтерактивний путівник Сонцем і всіма вісьмома планетами
+        Сонячної системи.
       </p>
       <ul>
-        <li>Натисни на планету або її назву внизу, щоб підлетіти ближче.</li>
+        <li>
+          Натисни на Сонце, планету або назву внизу, щоб підлетіти ближче.
+        </li>
         <li>
           Кнопка «Сонячна система» або клавіша <kbd>Esc</kbd> повертає до карти.
         </li>
@@ -356,7 +361,7 @@
     </dialog>
     <noscript
       ><div class="noscript-note">
-        Щоб досліджувати планети, увімкни JavaScript у браузері.
+        Щоб досліджувати Сонце й планети, увімкни JavaScript у браузері.
       </div></noscript
     >
   </body>
