@@ -6,12 +6,12 @@
     <meta name="theme-color" content="#070a12" />
     <meta
       name="description"
-      content="ORBIT — інтерактивна подорож Сонячною системою. Досліджуй Сонце й вісім планет, підлітай ближче та відкривай їхні історії."
+      content="ORBIT — інтерактивна подорож Сонячною системою. Досліджуй Сонце, вісім планет і дванадцять супутників, підлітай ближче та відкривай їхні історії."
     />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>ORBIT — твоя Сонячна система</title>
-    <script type="module" crossorigin src="./assets/index-B-kGiUMW.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CNv-l3pi.css">
+    <script type="module" crossorigin src="./assets/index-DpJD_ifL.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Bf8bebbL.css">
   </head>
   <body data-view="landing" data-travel="false">
     <div id="universe" class="universe" aria-busy="false">
@@ -163,6 +163,28 @@
           </div>
           <p class="planet-tagline" id="planet-tagline"></p>
           <p class="planet-description" id="planet-description"></p>
+          <section
+            class="moon-section"
+            id="moon-section"
+            aria-labelledby="moon-heading"
+            hidden
+          >
+            <div class="moon-section-heading">
+              <h2 id="moon-heading">Супутники</h2>
+              <button
+                id="back-to-planet"
+                type="button"
+                class="moon-parent-link"
+                hidden
+              ></button>
+            </div>
+            <div
+              id="moon-list"
+              class="moon-list"
+              role="group"
+              aria-labelledby="moon-heading"
+            ></div>
+          </section>
           <dl class="planet-stats">
             <div>
               <dt>
@@ -235,7 +257,7 @@
                 ><svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="m10 5-7 7 7 7M3 12h18" /></svg></span
               ><span id="previous-planet-name"></span></button
-            ><span id="visited-label">ВІДКРИТО 0 / 9</span
+            ><span id="visited-label">ВІДКРИТО 0 / 21</span
             ><button id="next-planet" class="text-button" type="button">
               <span id="next-planet-name"></span
               ><span aria-hidden="true"
@@ -331,8 +353,8 @@
       ><span class="eyebrow">ORBIT / ПРО АТЛАС</span>
       <h2 id="about-title">Залишайся<br /><span>допитливим.</span></h2>
       <p>
-        Це твій інтерактивний путівник Сонцем і всіма вісьмома планетами
-        Сонячної системи.
+        Це твій інтерактивний путівник Сонцем, вісьмома планетами та
+        дванадцятьма їхніми супутниками.
       </p>
       <ul>
         <li>
@@ -340,6 +362,10 @@
         </li>
         <li>
           Кнопка «Сонячна система» або клавіша <kbd>Esc</kbd> повертає до карти.
+        </li>
+        <li>
+          Біля планети обери супутник на орбіті або в її картці, щоб дослідити
+          його.
         </li>
         <li>Призупиняй рух і змінюй швидкість кнопками внизу.</li>
       </ul>
